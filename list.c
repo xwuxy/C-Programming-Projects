@@ -3,8 +3,13 @@
 
 #include "list.h"
 
+/* For a list we usually specify list->first, so first case is important and we usually don't care about last case.
+ */
 
 bool is_null(list_t *list) {
+  if(list == NULL) {
+    return true;
+  }
   if(list->first == NULL) {
     return true;
   } else {
@@ -39,6 +44,10 @@ void list_t_insert_back(int v, list_t *list) {
     return;
   }
   node_t *cur = list->first;
+  
+  // because we need to care about cur->next rather than cur
+  // as we are going to modify the list, 
+  // so we need to check list->first
   while(cur->next != NULL) {
     cur = cur->next;
   }
@@ -48,6 +57,7 @@ void list_t_insert_back(int v, list_t *list) {
 void list_insert(list_t *l, int i, int v) {
   // MY SELF REMINDER: ALWAYS set index = 2 when you consider
   // the first case
+  // Because We have jumped the NULL Case and the first case
 
   // We use index = 1 + 1 because we start from 1, but
   // we are dealing with cur->next (this is the index!);
