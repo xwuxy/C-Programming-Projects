@@ -1,4 +1,5 @@
-
+// Please notice that This file tries to dynamically allocate a linked list
+// I will update a POD version (allocate NOT on heap BUT on stack version) later.
 
 #include "list.h"
 
